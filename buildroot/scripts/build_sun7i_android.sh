@@ -24,10 +24,10 @@ function build_buildroot()
         printf "please wait for a few minutes ...\n"
 		if [[ $LICHEE_HOST_PLATFORM == 'darwin' ]]; then
    			archive="gnueabi.tbz2"
-        tar --strip-components=1 \
+ 		fi
+       	tar --strip-components=1 \
             -jxf ${LICHEE_BR_DIR}/dl/${archive} \
             -C ${tooldir}
-		fi
         [ $? -eq 0 ] && touch ${tooldir}/.installed
     fi
 

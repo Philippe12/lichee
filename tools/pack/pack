@@ -51,6 +51,14 @@ PACK_BOARD=${FLAGS_board}
 PACK_DEBUG=${FLAGS_debug_mode}
 PACK_SIG=${FLAGS_signture}
 
+LICHEE_HOST_PLATFORM='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+   LICHEE_HOST_PLATFORM='darwin'
+else
+   LICHEE_HOST_PLATFORM='linux'
+fi
+
 ROOT_DIR=`pwd`
 TOOLS_DIR="${ROOT_DIR}/pctools/linux"
 LICHEE_OUT="../../out/${PACK_PLATFORM}/common"
@@ -270,9 +278,15 @@ function do_pack_android()
     cd out/
     stan_cmd cp ${LICHEE_OUT}/u-boot.bin bootfs/linux/
     
-    sed -i 's/\\bootfs/\/bootfs/g' bootfs.ini
-    sed -i 's/\\\\/\//g' image.cfg
-    sed -i 's/imagename/;imagename/g' image.cfg
+	if [[ $LICHEE_HOST_PLATFORM == 'darwin' ]]; then
+	    sed -i '' 's/\\bootfs/\/bootfs/g' bootfs.ini
+	    sed -i '' 's/\\\\/\//g' image.cfg
+    	sed -i '' 's/imagename/;imagename/g' image.cfg
+	else
+	    sed -i 's/\\bootfs/\/bootfs/g' bootfs.ini
+    	sed -i 's/\\\\/\//g' image.cfg
+    	sed -i 's/imagename/;imagename/g' image.cfg
+    if
     
     local IMG_NAME
     if [ $PACK_DEBUG = "card0" ] ; then
@@ -292,8 +306,13 @@ function do_pack_android()
     echo "imagename = ${IMG_NAME}" >> image.cfg
     echo "" >> image.cfg
     
-    busybox unix2dos sys_config.fex
-    busybox unix2dos sys_partition.fex
+	if [[ $LICHEE_HOST_PLATFORM == 'darwin' ]]; then
+	    unix2dos sys_config.fex
+    	unix2dos sys_partition.fex
+	else
+	    busybox unix2dos sys_config.fex
+    	busybox unix2dos sys_partition.fex
+    fi
     pack_cmd script sys_config.fex
     pack_cmd script sys_partition.fex
     
