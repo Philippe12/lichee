@@ -286,7 +286,7 @@ function do_pack_android()
 	    sed -i 's/\\bootfs/\/bootfs/g' bootfs.ini
     	sed -i 's/\\\\/\//g' image.cfg
     	sed -i 's/imagename/;imagename/g' image.cfg
-    if
+    fi
     
     local IMG_NAME
     if [ $PACK_DEBUG = "card0" ] ; then
