@@ -2,3 +2,6 @@
 	path = linux-3.4
 url=https://github.com/Philippe12/linux-sunxi.git
 	branch = sunxi-3.4
+[submodule "u-boot"]
+	path = u-boot
+	url = https://github.com/Philippe12/u-boot-sunxi.git
