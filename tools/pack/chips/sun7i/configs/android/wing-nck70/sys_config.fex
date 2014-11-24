@@ -405,7 +405,7 @@ screen1_output_mode     = 4
 
 fb0_framebuffer_num     = 2
 fb0_format              = 10
-fb0_pixel_sequence      = 2
+fb0_pixel_sequence      = 0
 fb0_scaler_mode_enable  = 0
 fb0_width               = 0
 fb0_height              = 0
@@ -1130,7 +1130,7 @@ wifi_used          = 1
 wifi_sdc_id        = 3
 wifi_usbc_id       = 2
 wifi_usbc_type     = 1
-wifi_mod_sel       = 6
+wifi_mod_sel       = 0
 wifi_power         = ""
 
 ; 1 - bcm40181 sdio wifi gpio config
@@ -1398,6 +1398,7 @@ pmu_used                 = 1
 pmu_twi_addr             = 0x34
 pmu_twi_id               = 0
 pmu_irq_id               = 32
+pmu_backupen			 = 1
 pmu_battery_rdc          = 171
 pmu_battery_cap          = 2700
 pmu_init_chgcur          = 300
