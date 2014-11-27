@@ -11,3 +11,4 @@ out/
 tools/pack/out/
 tools/pack/sun7i_android_wing-*.img
 buildroot/dl/gcc-linaro.tar
+gcc-linaro
