@@ -302,19 +302,19 @@ ctp_used            = 1
 ctp_twi_id          = 2
 ctp_twi_addr        = 0x70
 ;----------ft5x_ts------------------------
-ctp_name            = "ft5x_ts"
-ctp_screen_max_x    = 800
-ctp_screen_max_y    = 480
-ctp_revert_x_flag   = 0
-ctp_revert_y_flag   = 0
-ctp_exchange_x_y_flag = 1
+;ctp_name            = "ft5x_ts"
+;ctp_screen_max_x    = 800
+;ctp_screen_max_y    = 480
+;ctp_revert_x_flag   = 0
+;ctp_revert_y_flag   = 0
+;ctp_exchange_x_y_flag = 1
 ;----------ilitek_ts------------------------
-;ctp_name            = "ilitek_ts"
-;ctp_screen_max_x    = 3400
-;ctp_screen_max_y    = 2048
-;ctp_revert_x_flag   = 1
-;ctp_revert_y_flag   = 1
-;ctp_exchange_x_y_flag = 0
+ctp_name            = "ilitek_ts"
+ctp_screen_max_x    = 3400
+ctp_screen_max_y    = 2048
+ctp_revert_x_flag   = 1
+ctp_revert_y_flag   = 1
+ctp_exchange_x_y_flag = 0
 
 ctp_int_port        = port:PH21<6><default><default><default>
 ctp_wakeup          = port:PB13<1><default><default><1>
@@ -1130,7 +1130,7 @@ wifi_used          = 1
 wifi_sdc_id        = 3
 wifi_usbc_id       = 2
 wifi_usbc_type     = 1
-wifi_mod_sel       = 0
+wifi_mod_sel       = 5
 wifi_power         = ""
 
 ; 1 - bcm40181 sdio wifi gpio config
